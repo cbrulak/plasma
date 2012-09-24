@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Plasma</title>
+  <title>Plasma: the Campfire App</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="row">	
+	<div class="twelve columns">
+		<%= image_tag "PromoImage.png" %>
+	</div>
+</div>	
 
 <%= yield %>
-
+<br><br>
+<div class="row">	
+	<div class="twelve columns get_it_on_play">
+		<a href="http://play.google.com/store/apps/details?id=com.brulak.android.plasma" class="center">
+  			<img alt="Get it on Google Play" src="http://www.android.com/images/brand/get_it_on_play_logo_small.png" />
+		
+		</a>
+	</div>
+</div>
 </body>
 </html>

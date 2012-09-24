@@ -1,6 +1,6 @@
 Plasma::Application.routes.draw do
   get "home/index"
-
+  match 'privacy' => 'home#privacy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
