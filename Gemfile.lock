@@ -30,4 +30,3 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   jekyll
-  liquid

@@ -24,7 +24,7 @@ title: Plasma the Campfire App
 
  <div class="row">
    <div class="twelve columns phone-one">
-     This is a beta release and your feedback is greatly appreciated. There is a public trello board: https://trello.com/board/plasma-the-campfire-app/502f1d84bccef6f93c41c1bb and there are two feedback mechanism in the app.
+     This is a beta release and your feedback is greatly appreciated. There is a public <a href=https://trello.com/board/plasma-the-campfire-app/502f1d84bccef6f93c41c1bb>trello board</a> and there are two feedback mechanism in the app.
      <br>
      Feedback is a gift. Please be generous.
      <br>
@@ -32,3 +32,17 @@ title: Plasma the Campfire App
    </div>
  </div>
    <br><br>
+   
+   <div class="row">
+     <div class="twelve columns phone-one">
+         {% for post in site.posts %}
+             {{ post.content}}
+         {% endfor %}
+     </div>
+   </div>
+     <br><br>
+   
+  
+   
+   
+   
