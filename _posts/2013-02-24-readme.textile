@@ -1,0 +1,16 @@
+---
+layout: posts
+title: Readme.blog
+---
+
+h2. {{ page.title }}
+
+h4. {{ page.date | date_to_long_string }}
+
+<p>This site is all about Plasma: the Campfire App and this blog series will be about the technical implementations of the application, user feedback and some general challanges I faced with developing Plasma. 
+</p>
+
+<p>
+    This is also my writing experiment/exercise so for the 1 or 2 other people that read this, I'm sorry in advance :) 
+</p>
+

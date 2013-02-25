@@ -2,9 +2,20 @@
 layout: default
 title: Plasma the Campfire App
 ---
+
+<div class="row">
+  <div class="twelve columns phone-one">
+      <h1> Plasma blog</h1>
+      {% for post in site.posts %}
+          {{ post.content}}
+      {% endfor %}
+      
+  </div>
+</div>
+
 <div class="row">
    <div class="six columns phone-two">
-   <h1>Features:</h1>
+   <h3>Features:</h3>
      <ul>
      <li>secure: no login or password required. Use your API key and subdomain. </li>
      <li>select rooms to sync</li>
@@ -14,7 +25,7 @@ title: Plasma the Campfire App
    </ul>
    </div>
     <div class="six columns phone-two">
-     <h1>Permissions:</h1>
+     <h3>Permissions:</h3>
      <ul>
      <li>full network access. There is also an anonymous crash report uploader that uploads the nature of the crash without sending any personally identifying data. Also the Google Analytics mobile library is used to track anonymous and aggregated use statistics. </li>
      <li>network state: the app needs to determine the network state and which network type is on (wifi or mobile).</li>
@@ -31,19 +42,3 @@ title: Plasma the Campfire App
      The icon is an image: "Plasma Lamp" created by Luc Viatour and can be found at: http://www.Lucnix.be and used with permission.
    </div>
  </div>
-   <br><br>
-   
-   <div class="row">
-     <div class="twelve columns phone-one">
-         {% for post in site.posts %}
-             {{ post.content}}
-         {% endfor %}
-         
-     </div>
-   </div>
-     <br><br>
-   
-  
-   
-   
-   
