@@ -1,2 +1,2 @@
 url: yegdroid.ca
-exclude: Gemfile Gemfile.lock README.md server
+exclude: Gemfile Gemfile.lock README.rdoc server bin vendor
