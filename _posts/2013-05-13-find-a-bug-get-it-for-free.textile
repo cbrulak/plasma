@@ -1,0 +1,29 @@
+---
+layout: posts
+title: Find a bug and get it for free
+---
+
+h2. <a href="{{ page.url }}">{{ page.title }}</a>
+
+h4. {{ page.date | date_to_long_string }}
+
+<p>
+  I quietly added In App billing and subscription to Plasma recently. This was for two reasons:
+  
+  <ol>
+    <li>experiece</li>
+    <li>monetization (of course) </li>
+  </ol>
+  I wanted to gain some experience with billing as monetization should be a part of any decent app strategy and the extra 1$/year wouldn't hurt either. One of my goals with this app though as been to make a fantastic Campfire Android app and teach myself how to do that as I go. 
+</p>
+
+<p>
+  That being said, I'm still learning. Part of why the app was free to begin with was that defects would be common and as I get better so does the app. If the user is going through a bit of discomfort for my learning then a free app is good compensation.</p>
+<p>
+  So, if you use Plasma: the Campfire app and you find a bug (and you tell me) you will get any paid features for free. All you have to do is send me your invoice number from the same email address as you reported the bug and it'll be refunded. For how long? A year, forever? Depends on the feature/cost/service,etc. Multiple account support: free forever. Other future featuers will be handled on a case by case basis.
+</p>
+
+<p>
+  Thoughts? Send me an email :) Thanks!
+</p>
+
