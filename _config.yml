@@ -1,2 +1,3 @@
 url: plasmathecampfireapp.com
-exclude: Gemfile Gemfile.lock README.rdoc bin vendor
+exclude: Gemfile Gemfile.lock README.rdoc server bin vendor
+

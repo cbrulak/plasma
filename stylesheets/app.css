@@ -16,6 +16,7 @@ body {
   text-align: center
 }
 
+
 h1 {
     color: #8e165c;
 }
@@ -31,3 +32,9 @@ h3 {
 h4 {
     color: #8e165c;
 }
+ 
+a:link  { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+a:visited{ font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+a:hover  { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+a:active { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+
