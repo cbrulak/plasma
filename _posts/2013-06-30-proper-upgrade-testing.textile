@@ -20,15 +20,15 @@ h4. {{ page.date | date_to_long_string }}
   This led to the user's previous account details being lost and having to re-add the details. Not the worst bug but not a good experience. 
   During all my testing I was doing this: 
   </p>
-  <span class="code">
+  <div class="code">
   git checkout master 
-  </span>
-  <span class="code"> build and install via eclipse  </span>
-  <span class="code"> git checkout upgrade-branch  </span>
-  <span class="code"> build and install via eclipse  </span>
+  </div>
+  <div class="code"> build and install via eclipse  </div>
+  <div class="code"> git checkout upgrade-branch  </div>
+  <div class="code"> build and install via eclipse  </div>
 
 <p>
-Now, the only issue with this kind of install & test is that the upgrade methods: <span class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </span> did not get called. So, my horrible sql was never executed. 
+Now, the only issue with this kind of install & test is that the upgrade methods: <div class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </div> did not get called. So, my horrible sql was never executed. 
 </p>
 
 <p>
@@ -56,9 +56,9 @@ database.update(ACCOUNTS_TABLE_NAME, values, null, null);
 
 <p>
   So, now I do things a bit differently when I do database upgrades. 
-  <span class="code"> adb uninstall plasma.apk  </span>
-  <span class="code"> adb install plasma-oldversion.apk </span>
-  <span class="code"> adb install plasma-newversion.apk  </span>
+  <div class="code"> adb uninstall plasma.apk  </div>
+  <div class="code"> adb install plasma-oldversion.apk </div>
+  <div class="code"> adb install plasma-newversion.apk  </div>
   
 </p>
 
