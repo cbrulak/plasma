@@ -22,13 +22,13 @@ h4. {{ page.date | date_to_long_string }}
   </p>
   <span class="code">
   git checkout master 
-  </div>
-  <span class="code"> build and install via eclipse  </div>
-  <span class="code"> git checkout upgrade-branch  </div>
-  <span class="code"> build and install via eclipse  </div>
+  </span>
+  <span class="code"> build and install via eclipse  </span>
+  <span class="code"> git checkout upgrade-branch  </span>
+  <span class="code"> build and install via eclipse  </span>
 
 <p>
-Now, the only issue with this kind of install & test is that the upgrade methods: <span class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </div> did not get called. So, my horrible sql was never executed. 
+Now, the only issue with this kind of install & test is that the upgrade methods: <span class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </span> did not get called. So, my horrible sql was never executed. 
 </p>
 
 <p>
@@ -56,9 +56,9 @@ database.update(ACCOUNTS_TABLE_NAME, values, null, null);
 
 <p>
   So, now I do things a bit differently when I do database upgrades. 
-  <span class="code"> adb uninstall plasma.apk  </div>
-  <span class="code"> adb install plasma-oldversion.apk </div>
-  <span class="code"> adb install plasma-newversion.apk  </div>
+  <span class="code"> adb uninstall plasma.apk  </span>
+  <span class="code"> adb install plasma-oldversion.apk </span>
+  <span class="code"> adb install plasma-newversion.apk  </span>
   
 </p>
 
