@@ -38,12 +38,3 @@ a:visited{ font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-se
 a:hover  { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
 a:active { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
 
-code {
-font-family: "Courier", "Courier", Helvetica, Arial, sans-serif; font-style: normal; color: white; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px;
-background: black;
-}
-
-highlight {
-font-family: "Courier", "Courier", Helvetica, Arial, sans-serif; font-style: normal; color: white; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px;
-background: black;
-}
