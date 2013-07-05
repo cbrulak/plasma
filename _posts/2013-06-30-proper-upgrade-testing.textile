@@ -11,8 +11,56 @@ h4. {{ page.date | date_to_long_string }}
 	Plasma has a non-trivial database: multiple tables which while can't just be dropped and recreated for every database upgrade. 
 </p>
 <p>
-	I'm pretty particular about what changes go into the schema and how I will test it so when I added multiple acccount support I ran into some siginifcant issues (will be followed up with in another blog post).
+	I'm pretty particular about what changes go into the schema and how I will test it so when I added multiple account support I ran into some significant issues (will be followed up with in another blog post).
 </p>
 
 <p>
-	One of the errors I introduced was a bad upgrade. I wrote a manual update sql statement, which was wrong. This led to the user's previous account details being lost and having to re-add them. 
+	One of the errors I introduced was a bad upgrade. 
+  I wrote a manual update sql statement, which was wrong (not only was the sql wrong but the fact that I wrote a manual one should have been a smell at the time). 
+  This led to the user's previous account details being lost and having to re-add the details. Not the worst bug but not a good experience. 
+  During all my testing I was doing this: 
+  
+  {% highlight bash %} git checkout master {% endhighlight %}
+  {% highlight bash %} build and install via eclipse {% endhighlight %}
+  {% highlight bash %} git checkout upgrade-branch {% endhighlight %}
+  {% highlight bash %} build and install via eclipse {% endhighlight %}
+</p>
+<p>
+Now, the only issue with this kind of install & test is that the upgrade methods: {% highlight java %} onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)  {% endhighlight %} did not get called. So, my horrible sql was never executed. 
+</p>
+
+<p>
+I did not notice this error until the app update was published and on my second device I ran into it. (Protip for another post: always have a test app with the latest <strong>published</strong> version.) 
+</p>
+
+After much digging and I admit, a bit of panicking, I determined the line and cause and replace that horribleness with a proper call:
+
+before:
+{% highlight java %}
+database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
+{% endhighlight %}
+
+after:
+{% highlight java %} 
+ContentValues values = new ContentValues();
+values.put(DataStore.ACCOUNT_ACTIVE, Boolean.toString(true));
+values.put(DataStore.ACCOUNT_DELETED, Boolean.toString(false));
+database.update(ACCOUNTS_TABLE_NAME, values, null, null);  
+{% endhighlight %}
+
+
+<p>
+  Quiz: why was the onUpgrade never hit? The database was never downgraded with how I was installed 'old versions' of the app. 
+</p>
+
+<p>
+  So, now I do things a bit differently when I do database upgrades. 
+  {% highlight bash %} adb uninstall plasma.apk {% endhighlight %}
+  {% highlight bash %} adb install plasma-oldversion.apk {% endhighlight %}
+  {% highlight bash %} adb install plasma-newversion.apk {% endhighlight %}
+  
+</p>
+
+Hope this helps you out :) 
+
+Comments? Feedback? Find me on G+ (link above).
