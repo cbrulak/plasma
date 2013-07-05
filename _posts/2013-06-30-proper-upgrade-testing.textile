@@ -20,9 +20,9 @@ h4. {{ page.date | date_to_long_string }}
   This led to the user's previous account details being lost and having to re-add the details. Not the worst bug but not a good experience. 
   During all my testing I was doing this: 
   </p>
-  {% highlight bash %} 
+  <div class="code">
   git checkout master 
-  {% endhighlight %}
+</div>
   {% highlight bash %} build and install via eclipse {% endhighlight %}
   {% highlight bash %} git checkout upgrade-branch {% endhighlight %}
   {% highlight bash %} build and install via eclipse {% endhighlight %}
