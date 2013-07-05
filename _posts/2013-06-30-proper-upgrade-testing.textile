@@ -20,15 +20,15 @@ h4. {{ page.date | date_to_long_string }}
   This led to the user's previous account details being lost and having to re-add the details. Not the worst bug but not a good experience. 
   During all my testing I was doing this: 
   </p>
-  <div class="code">
+  <span class="code">
   git checkout master 
-</div>
-  {% highlight bash %} build and install via eclipse {% endhighlight %}
-  {% highlight bash %} git checkout upgrade-branch {% endhighlight %}
-  {% highlight bash %} build and install via eclipse {% endhighlight %}
+  </div>
+  <span class="code"> build and install via eclipse  </div>
+  <span class="code"> git checkout upgrade-branch  </div>
+  <span class="code"> build and install via eclipse  </div>
 
 <p>
-Now, the only issue with this kind of install & test is that the upgrade methods: {% highlight java %} onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)  {% endhighlight %} did not get called. So, my horrible sql was never executed. 
+Now, the only issue with this kind of install & test is that the upgrade methods: <span class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </div> did not get called. So, my horrible sql was never executed. 
 </p>
 
 <p>
@@ -38,17 +38,16 @@ I did not notice this error until the app update was published and on my second 
 After much digging and I admit, a bit of panicking, I determined the line and cause and replace that horribleness with a proper call:
 
 before:
-{% highlight java %}
+<div class="code">
 database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
-{% endhighlight %}
-
+ </div>
 after:
-{% highlight java %} 
+<div class="code">
 ContentValues values = new ContentValues();
 values.put(DataStore.ACCOUNT_ACTIVE, Boolean.toString(true));
 values.put(DataStore.ACCOUNT_DELETED, Boolean.toString(false));
 database.update(ACCOUNTS_TABLE_NAME, values, null, null);  
-{% endhighlight %}
+ </div>
 
 
 <p>
@@ -57,9 +56,9 @@ database.update(ACCOUNTS_TABLE_NAME, values, null, null);
 
 <p>
   So, now I do things a bit differently when I do database upgrades. 
-  {% highlight bash %} adb uninstall plasma.apk {% endhighlight %}
-  {% highlight bash %} adb install plasma-oldversion.apk {% endhighlight %}
-  {% highlight bash %} adb install plasma-newversion.apk {% endhighlight %}
+  <span class="code"> adb uninstall plasma.apk  </div>
+  <span class="code"> adb install plasma-oldversion.apk </div>
+  <span class="code"> adb install plasma-newversion.apk  </div>
   
 </p>
 
