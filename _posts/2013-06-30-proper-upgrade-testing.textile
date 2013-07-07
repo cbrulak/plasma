@@ -38,9 +38,7 @@ I did not notice this error until the app update was published and on my second 
 After much digging and I admit, a bit of panicking, I determined the line and cause and replace that horribleness with a proper call:
 
 before:
-<pre class="prettyprint">
-database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
- </pre>
+<pre class="prettyprint">database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES ( true, false)'  );</pre>
 after:
 <pre class="prettyprint">
 ContentValues values = new ContentValues();
