@@ -37,7 +37,7 @@ After much digging and I admit, a bit of panicking, I determined the line and ca
 
 before:
 <pre class="prettyprint">
-database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
+database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES ( true,false)'  );
 </pre>
 after:
 <pre class="prettyprint">
