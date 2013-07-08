@@ -26,7 +26,7 @@ h4. {{ page.date | date_to_long_string }}
   <pre class="prettyprint">build and install via eclipse  </pre>
 
 <p>
-Now, the only issue with this kind of install & test is that the upgrade methods: <div class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </div> did not get called. So, my horrible sql was never executed. 
+Now, the only issue with this kind of install & test is that the upgrade methods: <pre class="prettyprint">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)</pre> did not get called. So, my horrible sql was never executed. 
 </p>
 
 <p>
