@@ -54,9 +54,9 @@ database.update(ACCOUNTS_TABLE_NAME, values, null, null);
 
 <p>
   So, now I do things a bit differently when I do database upgrades. 
-  <div class="code"> adb uninstall plasma.apk  </div>
-  <div class="code"> adb install plasma-oldversion.apk </div>
-  <div class="code"> adb install plasma-newversion.apk  </div>
+  <pre class="prettyprint"> adb uninstall plasma.apk  </pre>
+  <pre class="prettyprint"> adb install plasma-oldversion.apk </pre>
+  <pre class="prettyprint"> adb install plasma-newversion.apk  </pre>
   
 </p>
 
