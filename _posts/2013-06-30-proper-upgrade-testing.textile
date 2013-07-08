@@ -39,7 +39,7 @@ After much digging and I admit, a bit of panicking, I determined the line and ca
 
 before:
 <div class="code">
-database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
+database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES ( true,false)'  );
  </div>
 after:
 <div class="code">
