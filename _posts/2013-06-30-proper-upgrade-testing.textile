@@ -20,12 +20,12 @@ h4. {{ page.date | date_to_long_string }}
   This led to the user's previous account details being lost and having to re-add the details. Not the worst bug but not a good experience. 
   During all my testing I was doing this: 
   </p>
-
-  
-  <pre class="prettyprint">git checkout master </pre>
-  <pre class="prettyprint">build and install via eclipse   </pre>
-  <pre class="prettyprint">git checkout upgrade-branch  </pre>
-  <pre class="prettyprint">build and install via eclipse  </pre>
+  <div class="code">
+  git checkout master 
+  </div>
+  <div class="code"> build and install via eclipse  </div>
+  <div class="code"> git checkout upgrade-branch  </div>
+  <div class="code"> build and install via eclipse  </div>
 
 <p>
 Now, the only issue with this kind of install & test is that the upgrade methods: <div class="code">onUpgrade(SQLiteDatabase database, int oldVersion,int newVersion)   </div> did not get called. So, my horrible sql was never executed. 
@@ -38,25 +38,27 @@ I did not notice this error until the app update was published and on my second 
 After much digging and I admit, a bit of panicking, I determined the line and cause and replace that horribleness with a proper call:
 
 before:
-<pre class="prettyprint">database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES ( true, false)'  );</pre>
+<div class="code">
+database.execSQL('UPDAET ' + ACCOUNTS_TABLE_NAME + ' SET (' + ACCOUNT_ACTIVE + '=?, ' + ACCOUNT_DELETED + '=?)' + ' VALUES(true,false)'  );
+ </div>
 after:
-<pre class="prettyprint">
+<div class="code">
 ContentValues values = new ContentValues();
 values.put(DataStore.ACCOUNT_ACTIVE, Boolean.toString(true));
 values.put(DataStore.ACCOUNT_DELETED, Boolean.toString(false));
 database.update(ACCOUNTS_TABLE_NAME, values, null, null);  
- </pre>
+ </div>
 
 
 <p>
-  Quiz: why was the onUpgrade never hit? The database was never downgraded with how I was installed 'old versions' of the app. 
+  Quiz: why was the onUpgrade never hit? The database was never downgraded with the installation method described above. 
 </p>
 
 <p>
   So, now I do things a bit differently when I do database upgrades. 
-  <pre class="code"> adb uninstall plasma.apk  </pre>
-  <pre class="code"> adb install plasma-oldversion.apk </pre>
-  <pre class="code"> adb install plasma-newversion.apk  </pre>
+  <div class="code"> adb uninstall plasma.apk  </div>
+  <div class="code"> adb install plasma-oldversion.apk </div>
+  <div class="code"> adb install plasma-newversion.apk  </div>
   
 </p>
 
